@@ -3,6 +3,7 @@
 
 import contextlib
 import io
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -98,6 +99,29 @@ class PrepareDependenciesTests(unittest.TestCase):
         self.stage()
         with self.assertRaisesRegex(bootstrap.PreparationError, "Use --offline"):
             self.run_prepare()
+
+    def test_metadata_checks_ignore_global_config_and_local_fsmonitor(self):
+        self.stage()
+        repo = self.repository()
+        invalid_config = self.root / "invalid.gitconfig"
+        invalid_config.write_text("[invalid config\n")
+        marker = self.root / "fsmonitor-ran"
+        hook = self.root / "fsmonitor.sh"
+        hook.write_text("#!/bin/sh\ntouch '{}'\n".format(marker))
+        hook.chmod(0o700)
+        bootstrap.git(repo, "config", "core.fsmonitor", str(hook))
+        with patch.dict(os.environ, {"GIT_CONFIG_GLOBAL": str(invalid_config),
+                                     "GIT_CONFIG_SYSTEM": str(invalid_config)}):
+            self.run_prepare(offline=True)
+        self.assertFalse(marker.exists())
+
+    def test_fetch_keeps_caller_git_configuration(self):
+        result = subprocess.CompletedProcess([], 0, stdout="", stderr="")
+        with patch.object(subprocess, "run", return_value=result) as run:
+            bootstrap.git(self.root, "fetch", "origin", "a" * 40)
+        command = run.call_args.args[0]
+        self.assertIsNone(run.call_args.kwargs["env"])
+        self.assertNotIn("core.fsmonitor=false", command)
 
     def test_all_seven_missing_repositories_use_pins(self):
         fetched = []

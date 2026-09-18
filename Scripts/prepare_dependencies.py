@@ -34,7 +34,17 @@ class PreparationError(Exception):
 
 
 def git(path, *args):
-    result = subprocess.run(["git", "-C", str(path), *args], text=True,
+    command = ["git", "-C", str(path)]
+    environment = None
+    if args and args[0] in ("status", "rev-parse"):
+        # Homebrew's build sandbox may forbid reading the user's Git config.
+        # Metadata checks need no credentials/proxy settings or fsmonitor hooks.
+        # Keep fetch/checkout using the caller's normal Git configuration.
+        environment = os.environ.copy()
+        environment.update(GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_SYSTEM=os.devnull,
+                           GIT_OPTIONAL_LOCKS="0")
+        command += ["-c", "core.fsmonitor=false"]
+    result = subprocess.run([*command, *args], text=True, env=environment,
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if result.returncode:
         raise PreparationError(result.stderr.strip() or "Git failed in " + str(path))
