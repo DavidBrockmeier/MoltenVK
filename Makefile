@@ -35,7 +35,7 @@ MAKEARGS := $(strip \
 .PHONY: check-m5-toolchain
 check-m5-toolchain:
 	@"$(XCODEBUILD_BIN)" -version >/dev/null || { \
-		printf '%s\n' 'M5 build requires full Xcode with its license and first-run setup completed.' >&2; \
+		printf '%s\n' 'M5 build requires a working full Xcode toolchain; check developer-directory selection and setup.' >&2; \
 		exit 1; \
 	}
 	@sdk_version="$$("$(XCRUN)" --sdk macosx --show-sdk-version)" || exit 1; \
