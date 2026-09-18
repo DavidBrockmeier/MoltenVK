@@ -26,6 +26,8 @@ Released TBD
 - Fix shader stage interface matching of 16-bit floating point variables.
 - Fix spurious warning about blending on attachment formats that do not support it.
 - Fix `OpArrayLength` returning 0 for buffers bound with `vkCmdPushDescriptorSet()`, which never populated the implicit buffer-sizes buffer.
+- Fix `VkDeviceMemory` imported from a `MTLTexture` not backing the image bound to it, and over-releasing that texture.
+- Fix leak of the `MTLBuffer` of a host-coherent `VkDeviceMemory` that also holds a `MTLTexture`.
 
 
 
@@ -2841,4 +2843,3 @@ MoltenVK 1.0.0
 Released 2018/02/26
 
 Initial open-source release!
-
