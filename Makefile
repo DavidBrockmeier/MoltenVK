@@ -1,7 +1,14 @@
 XC_PROJ := MoltenVKPackaging.xcodeproj
 XC_SCHEME := MoltenVK Package
 
-XCODEBUILD := set -o pipefail && $(shell command -v xcodebuild)
+SHELL := /bin/bash
+# This local build targets the M5 host. Use `make all` for all upstream platforms.
+.DEFAULT_GOAL := m5
+
+XCODEBUILD_BIN ?= $(shell command -v xcodebuild)
+XCRUN ?= xcrun
+XCODEBUILD := set -o pipefail && "$(XCODEBUILD_BIN)"
+M5_DEPLOYMENT_TARGET ?= 26.0
 # Used to determine if xcpretty is available
 XCPRETTY_PATH := $(shell command -v xcpretty 2> /dev/null)
 
@@ -14,11 +21,43 @@ else
 	OUTPUT_FMT_CMD = -quiet
 endif
 
-# Collect all build settings defined on the command-line (eg: MVK_HIDE_VULKAN_SYMBOLS=1, MVK_CONFIG_LOG_LEVEL=3...)
+# Collect command-line preprocessor settings (eg: MVK_HIDE_VULKAN_SYMBOLS=1).
+# Build controls are not C macros. In particular, DEVELOPER_DIR may contain spaces.
+MAKE_CONTROL_VARIABLES := M5_% XCODEBUILD XCODEBUILD_BIN XCRUN DEVELOPER_DIR \
+	ARCHS ONLY_ACTIVE_ARCH EXCLUDED_ARCHS SDKROOT MACOSX_DEPLOYMENT_TARGET
 MAKEARGS := $(strip \
-  $(foreach v,$(.VARIABLES),\
+  $(foreach v,$(filter-out $(MAKE_CONTROL_VARIABLES),$(.VARIABLES)),\
     $(if $(filter command\ line,$(origin $(v))),\
       $(v)=$(value $(v)) ,)))
+
+# A recent SDK enables MoltenVK's existing Metal 4 feature guards. It does not
+# implement new TensorOps kernels or enable unmerged Vulkan extensions.
+.PHONY: check-m5-toolchain
+check-m5-toolchain:
+	@"$(XCODEBUILD_BIN)" -version >/dev/null || { \
+		printf '%s\n' 'M5 build requires full Xcode with its license and first-run setup completed.' >&2; \
+		exit 1; \
+	}
+	@sdk_version="$$("$(XCRUN)" --sdk macosx --show-sdk-version)" || exit 1; \
+	 sdk_major="$${sdk_version%%.*}"; \
+	 case "$$sdk_major" in ''|*[!0-9]*) \
+		printf 'Cannot determine macOS SDK version: %s\n' "$$sdk_version" >&2; exit 1;; esac; \
+	 if [ "$$sdk_major" -lt 26 ]; then \
+		printf 'M5 build requires macOS SDK 26 or newer; selected SDK is %s.\n' "$$sdk_version" >&2; exit 1; \
+	 fi
+
+.PHONY: m5
+m5: check-m5-toolchain
+	$(XCODEBUILD) build -project "$(XC_PROJ)" -scheme "$(XC_SCHEME) (macOS only)" \
+		-destination "generic/platform=macOS" -configuration Release -sdk macosx \
+		ARCHS=arm64 ONLY_ACTIVE_ARCH=NO EXCLUDED_ARCHS= \
+		MACOSX_DEPLOYMENT_TARGET="$(M5_DEPLOYMENT_TARGET)" \
+		GCC_PREPROCESSOR_DEFINITIONS='$${inherited} $(MAKEARGS)' $(OUTPUT_FMT_CMD)
+
+# Optional graphics SPIs; separate from M5 neural-accelerator support.
+.PHONY: m5-spi
+m5-spi:
+	$(MAKE) m5 MVK_USE_METAL_PRIVATE_API=1
 
 # Specify individually (not as dependencies) so the sub-targets don't run in parallel
 # maccat is currently excluded from `all` because of unresolved build issues on Mac Catalyst platform.
