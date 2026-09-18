@@ -624,6 +624,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB0000000000000000000000 /* MoltenVK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = MoltenVK.xcconfig; path = ../Config/MoltenVK.xcconfig; sourceTree = SOURCE_ROOT; };
 		16089AF22C924621003CF426 /* MVKStateTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVKStateTracking.h; sourceTree = "<group>"; };
 		1667EB802D5BDEF500ECF248 /* MVKInlineArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVKInlineArray.h; sourceTree = "<group>"; };
 		1667EB822D5BDEF500ECF248 /* MVKInlineObjectConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVKInlineObjectConstructor.h; sourceTree = "<group>"; };
@@ -1082,6 +1083,7 @@
 		A9F55D24198BE6A7004EC31B = {
 			isa = PBXGroup;
 			children = (
+				DB0000000000000000000000 /* MoltenVK.xcconfig */,
 				A94FB7641C7DFB4800632CA3 /* MoltenVK */,
 				A9F0429B1FB4CF82009FCCB8 /* Common */,
 				A9AC84381D061E7000E2CA97 /* include */,
@@ -2399,6 +2401,7 @@
 		};
 		A979A9502B9A215200F69E67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				LD_DYLIB_INSTALL_NAME = "@rpath/lib${PRODUCT_NAME}.dylib";
@@ -2412,6 +2415,7 @@
 		};
 		A979A9512B9A215200F69E67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				LD_DYLIB_INSTALL_NAME = "@rpath/lib${PRODUCT_NAME}.dylib";
@@ -2439,6 +2443,7 @@
 		};
 		A9CBEDFF1B6299D800E45FDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				SDKROOT = macosx;
 			};
@@ -2446,6 +2451,7 @@
 		};
 		A9CBEE001B6299D800E45FDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				SDKROOT = macosx;
 			};
@@ -2541,6 +2547,7 @@
 		};
 		A9F4D9EB2B8EC112004AD576 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/${PRODUCT_NAME}.framework/${PRODUCT_NAME}";
@@ -2554,6 +2561,7 @@
 		};
 		A9F4D9EC2B8EC112004AD576 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000000 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/${PRODUCT_NAME}.framework/${PRODUCT_NAME}";

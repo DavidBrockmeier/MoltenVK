@@ -276,6 +276,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB0000000000000000000003 /* MoltenVK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = MoltenVK.xcconfig; path = Config/MoltenVK.xcconfig; sourceTree = SOURCE_ROOT; };
 		A90055732EED9B7D00F19028 /* CMakeLists.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = CMakeLists.txt; path = ../CMakeLists.txt; sourceTree = "<group>"; };
 		A905CE6F2BB897F700BBCB10 /* clean_dynamic.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_dynamic.sh; sourceTree = "<group>"; };
 		A92DB3E41CE0F37D00FBC835 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -308,6 +309,7 @@
 		A90B2B1C1A9B6170008EE819 = {
 			isa = PBXGroup;
 			children = (
+				DB0000000000000000000003 /* MoltenVK.xcconfig */,
 				A92DB3EE1CE0F72500FBC835 /* MoltenVK.xcodeproj */,
 				A92DB40E1CE0F89600FBC835 /* MoltenVKShaderConverter.xcodeproj */,
 				A975D55B213F25AD00D4834F /* Scripts */,
@@ -788,6 +790,7 @@
 		};
 		A975D59C2140586700D4834F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000003 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -795,6 +798,7 @@
 		};
 		A975D59D2140586700D4834F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000003 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

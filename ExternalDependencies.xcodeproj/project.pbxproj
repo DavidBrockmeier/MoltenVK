@@ -2051,6 +2051,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB0000000000000000000002 /* MoltenVK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = MoltenVK.xcconfig; path = Config/MoltenVK.xcconfig; sourceTree = SOURCE_ROOT; };
 		2FEA0CD82490322100EEF3AD /* libSPIRVTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSPIRVTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEA0CEF2490322B00EEF3AD /* libSPIRVCross.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSPIRVCross.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		450A4F63221C5A95007203D7 /* spirv_reflect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = spirv_reflect.hpp; sourceTree = "<group>"; };
@@ -3144,6 +3145,7 @@
 		A9F55D24198BE6A7004EC31B = {
 			isa = PBXGroup;
 			children = (
+				DB0000000000000000000002 /* MoltenVK.xcconfig */,
 				A9C2104521D14FD7006BA2D3 /* fetchDependencies */,
 				A9C2104721D15843006BA2D3 /* ExternalRevisions */,
 				A90FD9E921CC519E00B92BB2 /* External */,
@@ -5786,6 +5788,7 @@
 		};
 		A90FD9E221CC4EB900B92BB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5798,6 +5801,7 @@
 		};
 		A90FD9E321CC4EB900B92BB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -5810,6 +5814,7 @@
 		};
 		A972A7E521CEC72F0013AB25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5818,6 +5823,7 @@
 		};
 		A972A7E621CEC72F0013AB25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5896,6 +5902,7 @@
 		};
 		A972A82121CECBE90013AB25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
@@ -5914,6 +5921,7 @@
 		};
 		A972A82221CECBE90013AB25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000002 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;

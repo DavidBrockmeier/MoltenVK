@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace version="1.0">
+   <FileRef location="group:Development/MoltenVKProbe.xcodeproj"/>
+   <FileRef location="group:MoltenVK/MoltenVK.xcodeproj"/>
+   <FileRef location="group:MoltenVKShaderConverter/MoltenVKShaderConverter.xcodeproj"/>
+   <FileRef location="group:ExternalDependencies.xcodeproj"/>
+   <FileRef location="group:MoltenVKPackaging.xcodeproj"/>
+   <Group location="container:" name="Build Configuration">
+      <FileRef location="group:Config/MoltenVK.xcconfig"/>
+      <FileRef location="group:Makefile"/>
+   </Group>
+</Workspace>

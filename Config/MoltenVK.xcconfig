@@ -1,0 +1,8 @@
+// Shared settings for this personal macOS development build.
+// Used by native Xcode targets and command-line builds of the same workspace.
+ARCHS = arm64
+ONLY_ACTIVE_ARCH = YES
+MACOSX_DEPLOYMENT_TARGET = 26.0
+CODE_SIGNING_ALLOWED = NO
+MVK_USE_METAL_PRIVATE_API = 1
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) MVK_USE_METAL_PRIVATE_API=$(MVK_USE_METAL_PRIVATE_API)

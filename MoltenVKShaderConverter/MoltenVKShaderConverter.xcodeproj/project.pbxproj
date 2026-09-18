@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1000000000000000000004 /* libSPIRVCross.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1000000000000000000002 /* libSPIRVCross.a */; };
+		DB1000000000000000000005 /* libSPIRVTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1000000000000000000003 /* libSPIRVTools.a */; };
 		2FEA0D012490381A00EEF3AD /* SPIRVReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 450A4F5E220CB180007203D7 /* SPIRVReflection.h */; };
 		2FEA0D022490381A00EEF3AD /* MVKStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = A98149651FB6A98A005F00B4 /* MVKStrings.h */; };
 		2FEA0D042490381A00EEF3AD /* SPIRVConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = A928C9171D0488DC00071B88 /* SPIRVConversion.h */; };
@@ -65,6 +67,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DB1000000000000000000006 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1000000000000000000001 /* ExternalDependencies.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A90FD8A021CC4EB900B92BB2;
+			remoteInfo = "SPIRV-Cross-macOS";
+		};
+		DB1000000000000000000007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1000000000000000000001 /* ExternalDependencies.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A972A81021CECBE90013AB25;
+			remoteInfo = "SPIRV-Tools-macOS";
+		};
 		A925B71C1C78DEBF006E7ECD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9F55D25198BE6A7004EC31B /* Project object */;
@@ -72,9 +88,25 @@
 			remoteGlobalIDString = A93903C01C57E9ED00FE90DC;
 			remoteInfo = "MoltenVKSPIRVToMSLConverter-macOS";
 		};
+		DB100000000000000000000B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1000000000000000000001 /* ExternalDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A90FD9E421CC4EB900B92BB2;
+			remoteInfo = "libSPIRVCross.a";
+		};
+		DB100000000000000000000C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1000000000000000000001 /* ExternalDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A972A82321CECBE90013AB25;
+			remoteInfo = "libSPIRVTools.a";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB1000000000000000000001 /* ExternalDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = wrapper.pb-project; name = ExternalDependencies.xcodeproj; path = ../ExternalDependencies.xcodeproj; sourceTree = SOURCE_ROOT; };
+		DB0000000000000000000001 /* MoltenVK.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = MoltenVK.xcconfig; path = ../Config/MoltenVK.xcconfig; sourceTree = SOURCE_ROOT; };
 		2FEA0D142490381A00EEF3AD /* libMoltenVKShaderConverter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMoltenVKShaderConverter.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		450A4F5E220CB180007203D7 /* SPIRVReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPIRVReflection.h; sourceTree = "<group>"; };
 		A9093F5A1C58013E0094110D /* SPIRVToMSLConverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SPIRVToMSLConverter.cpp; sourceTree = "<group>"; };
@@ -136,8 +168,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A983870924EEE94800199A05 /* SPIRVTools.xcframework in Frameworks */,
-				A98386FC24EEE91A00199A05 /* SPIRVCross.xcframework in Frameworks */,
+				DB1000000000000000000005 /* libSPIRVTools.a in Frameworks */,
+				DB1000000000000000000004 /* libSPIRVCross.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +185,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB100000000000000000000A /* External Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB1000000000000000000002 /* libSPIRVCross.a */,
+				DB1000000000000000000003 /* libSPIRVTools.a */,
+			);
+			name = "External Products";
+			sourceTree = "<group>";
+		};
 		A9093C561C58013D0094110D /* MoltenVKShaderConverter */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +260,8 @@
 		A9F55D24198BE6A7004EC31B = {
 			isa = PBXGroup;
 			children = (
+				DB0000000000000000000001 /* MoltenVK.xcconfig */,
+				DB1000000000000000000001 /* ExternalDependencies.xcodeproj */,
 				A9093C561C58013D0094110D /* MoltenVKShaderConverter */,
 				A97CC73C1C7527F3004A5C7E /* MoltenVKShaderConverterTool */,
 				A9F042A81FB4D060009FCCB8 /* Common */,
@@ -351,6 +394,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				DB1000000000000000000008 /* PBXTargetDependency */,
+				DB1000000000000000000009 /* PBXTargetDependency */,
 			);
 			name = "MoltenVKShaderConverter-macOS";
 			productName = "MetalGLShaderConverter-macOS";
@@ -408,6 +453,12 @@
 			productRefGroup = A9F55D24198BE6A7004EC31B;
 			projectDirPath = "";
 			projectRoot = "";
+			projectReferences = (
+				{
+					ProductGroup = DB100000000000000000000A /* External Products */;
+					ProjectRef = DB1000000000000000000001 /* ExternalDependencies.xcodeproj */;
+				},
+			);
 			targets = (
 				A9092A8C1A81717B00051823 /* MoltenVKShaderConverter */,
 				A93903B81C57E9D700FE90DC /* MoltenVKShaderConverter-iOS */,
@@ -417,6 +468,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DB1000000000000000000002 /* libSPIRVCross.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSPIRVCross.a;
+			remoteRef = DB100000000000000000000B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB1000000000000000000003 /* libSPIRVTools.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSPIRVTools.a;
+			remoteRef = DB100000000000000000000C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		A93ED4E724F59E0900FEB018 /* Copy to Staging */ = {
@@ -561,6 +629,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DB1000000000000000000008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SPIRV-Cross-macOS";
+			targetProxy = DB1000000000000000000006 /* PBXContainerItemProxy */;
+		};
+		DB1000000000000000000009 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SPIRV-Tools-macOS";
+			targetProxy = DB1000000000000000000007 /* PBXContainerItemProxy */;
+		};
 		A925B71D1C78DEBF006E7ECD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A93903C01C57E9ED00FE90DC /* MoltenVKShaderConverter-macOS */;
@@ -585,6 +663,7 @@
 		};
 		A9092A911A81717C00051823 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000001 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
@@ -597,6 +676,7 @@
 		};
 		A9092A921A81717C00051823 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000001 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
@@ -623,6 +703,7 @@
 		};
 		A93903C51C57E9ED00FE90DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000001 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				SDKROOT = macosx;
 			};
@@ -630,6 +711,7 @@
 		};
 		A93903C61C57E9ED00FE90DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB0000000000000000000001 /* MoltenVK.xcconfig */;
 			buildSettings = {
 				SDKROOT = macosx;
 			};

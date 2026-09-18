@@ -1,0 +1,94 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 56;
+    objects = {
+        A10000000000000000000001 /* MoltenVKProbe */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = A10000000000000000000002;
+            buildPhases = (A10000000000000000000003, A10000000000000000000004);
+            buildRules = ();
+            dependencies = ();
+            name = MoltenVKProbe;
+            productName = MoltenVKProbe;
+            productReference = A10000000000000000000005;
+            productType = "com.apple.product-type.tool";
+        };
+        A10000000000000000000002 = {
+            isa = XCConfigurationList;
+            buildConfigurations = (A10000000000000000000006, A10000000000000000000007);
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Debug;
+        };
+        A10000000000000000000003 = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (A10000000000000000000008);
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A10000000000000000000004 = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = ();
+            runOnlyForDeploymentPostprocessing = 0;
+        };
+        A10000000000000000000005 = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MoltenVKProbe; sourceTree = BUILT_PRODUCTS_DIR;};
+        A10000000000000000000006 = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = A1000000000000000000000B;
+            buildSettings = {
+                CLANG_ENABLE_MODULES = YES;
+                CODE_SIGN_IDENTITY = "-";
+                CODE_SIGN_STYLE = Automatic;
+                GCC_C_LANGUAGE_STANDARD = c17;
+                GCC_OPTIMIZATION_LEVEL = 0;
+                GCC_PREPROCESSOR_DEFINITIONS = ("$(inherited)", "DEBUG=1");
+                GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+                HEADER_SEARCH_PATHS = ("$(inherited)", "$(SRCROOT)/../External/Vulkan-Headers/include");
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                ENABLE_HARDENED_RUNTIME = NO;
+            };
+            name = Debug;
+        };
+        A10000000000000000000007 = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = A1000000000000000000000B;
+            buildSettings = {
+                CLANG_ENABLE_MODULES = YES;
+                CODE_SIGN_IDENTITY = "-";
+                CODE_SIGN_STYLE = Automatic;
+                GCC_C_LANGUAGE_STANDARD = c17;
+                GCC_OPTIMIZATION_LEVEL = 2;
+                GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+                HEADER_SEARCH_PATHS = ("$(inherited)", "$(SRCROOT)/../External/Vulkan-Headers/include");
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                ENABLE_HARDENED_RUNTIME = NO;
+            };
+            name = Release;
+        };
+        A10000000000000000000008 = {isa = PBXBuildFile; fileRef = A10000000000000000000009;};
+        A10000000000000000000009 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>";};
+        A1000000000000000000000A = {
+            isa = PBXProject;
+            attributes = {BuildIndependentTargetsInParallel = YES; LastUpgradeCheck = 2700; TargetAttributes = {A10000000000000000000001 = {CreatedOnToolsVersion = 27.0;};};};
+            buildConfigurationList = A1000000000000000000000D;
+            compatibilityVersion = "Xcode 14.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (en, Base);
+            mainGroup = A1000000000000000000000C;
+            productRefGroup = A1000000000000000000000E;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (A10000000000000000000001);
+        };
+        A1000000000000000000000B = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = MoltenVK.xcconfig; path = ../Config/MoltenVK.xcconfig; sourceTree = "<group>";};
+        A1000000000000000000000C = {isa = PBXGroup; children = (A10000000000000000000009, A1000000000000000000000B, A1000000000000000000000E); sourceTree = "<group>";};
+        A1000000000000000000000D = {isa = XCConfigurationList; buildConfigurations = (A1000000000000000000000F, A10000000000000000000010); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug;};
+        A1000000000000000000000E = {isa = PBXGroup; children = (A10000000000000000000005); name = Products; sourceTree = "<group>";};
+        A1000000000000000000000F = {isa = XCBuildConfiguration; buildSettings = {SDKROOT = macosx; ARCHS = arm64; MACOSX_DEPLOYMENT_TARGET = 26.0; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_UNREACHABLE_CODE = YES; GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES;}; name = Debug;};
+        A10000000000000000000010 = {isa = XCBuildConfiguration; buildSettings = {SDKROOT = macosx; ARCHS = arm64; MACOSX_DEPLOYMENT_TARGET = 26.0; CLANG_WARN_DOCUMENTATION_COMMENTS = YES; CLANG_WARN_UNREACHABLE_CODE = YES; GCC_WARN_64_TO_32_BIT_CONVERSION = YES; GCC_WARN_UNDECLARED_SELECTOR = YES; GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE; GCC_WARN_UNUSED_FUNCTION = YES; GCC_WARN_UNUSED_VARIABLE = YES;}; name = Release;};
+    };
+    rootObject = A1000000000000000000000A;
+}
